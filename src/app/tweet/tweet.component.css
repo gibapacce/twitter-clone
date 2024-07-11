@@ -1,0 +1,9 @@
+.tweet {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.tweet-actions button {
+  margin-right: 10px;
+}

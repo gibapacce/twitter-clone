@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="profile-header">
+    <img [src]="user.profilePicture" class="profile-picture">
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.bio }}</p>
+    <button class="btn btn-primary" (click)="editProfile()">Edit Profile</button>
+  </div>
+  <div class="profile-stats">
+    <p>Followers: {{ user.followers }}</p>
+    <p>Tweets: {{ user.tweets.length }}</p>
+  </div>
+  <div class="tweets">
+    <h3>Tweets</h3>
+    <app-tweet *ngFor="let tweet of user.tweets" [tweet]="tweet"></app-tweet>
+  </div>
+</div>

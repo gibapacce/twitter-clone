@@ -1,0 +1,8 @@
+<div class="tweet">
+  <p>{{ tweet.content }}</p>
+  <div class="tweet-actions">
+    <button (click)="likeTweet()">Like ({{ tweet.likes }})</button>
+    <button (click)="commentTweet()">Comment ({{ tweet.comments }})</button>
+    <button (click)="retweetTweet()">Retweet ({{ tweet.retweets }})</button>
+  </div>
+</div>
