@@ -9,7 +9,6 @@ import { FeedComponent } from './feed/feed.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     ProfileComponent,
     FeedComponent,
-    TweetComponent,
-    NavbarComponent
+    TweetComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    AppComponent
   ],
   providers: [],
   bootstrap: []

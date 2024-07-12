@@ -1,13 +1,88 @@
-.profile-header {
-  text-align: center;
+body {
+  background-color: #e0f7fa; /* Light cyan background */
+  color: #4a148c; /* Dark purple text */
+  font-family: Arial, sans-serif;
 }
-.profile-picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+
+/* Navbar Styling */
+.navbar {
+  background-color: #ffffff; /* White background for the navbar */
+  border-bottom: 2px solid #4a148c; /* Dark purple bottom border */
 }
-.profile-stats {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+
+.navbar-brand {
+  color: #6a1b9a; /* Purple color for the navbar brand */
+  font-size: 1.5rem; /* Larger font size for the brand */
+}
+
+.nav-link {
+  color: #4a148c; /* Dark purple color for the nav links */
+}
+
+.nav-link:hover {
+  color: #6a1b9a; /* Purple color on hover */
+}
+
+.profile-pic {
+  border-radius: 50%; /* Round the corners for a circular profile picture */
+  border: 2px solid #ccc; /* Example border styling */
+}
+
+.preview-pic {
+  max-width: 250px;
+  max-height: 250px;
+  margin-top: 10px;
+}
+
+.card-title {
+  color: purple; /* Purple text color for name */
+}
+
+.card-text {
+  color: cyan; /* Cyan text color for bio */
+}
+
+.btn-primary {
+  background-color: purple; /* Purple background for primary button */
+  border-color: purple; /* Purple border for primary button */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #8c1aff; /* Lighter purple on hover or focus */
+  border-color: #8c1aff; /* Lighter purple border on hover or focus */
+}
+
+.btn-secondary {
+  background-color: cyan; /* Cyan background for secondary button */
+  border-color: cyan; /* Cyan border for secondary button */
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #4db8ff; /* Lighter cyan on hover or focus */
+  border-color: #4db8ff; /* Lighter cyan border on hover or focus */
+}
+
+.list-group-item {
+  background-color: #f0f0f0; /* Light gray background for tweet list items */
+}
+
+.text-purple {
+  color: purple; /* Purple text color */
+}
+
+.text-cyan {
+  color: cyan; /* Cyan text color */
+}
+
+.profile-pic {
+  max-width: 250px; /* Example max-width */
+  max-height: 250px; /* Example max-height */
+}
+
+.preview-pic {
+  max-width: 250px;
+  max-height: 250px;
+  margin-top: 10px;
 }

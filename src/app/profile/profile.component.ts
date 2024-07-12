@@ -1,27 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
+  editMode = false;
+  defaultProfilePicture = './profile-picture.jpg';
+
   user = {
     name: 'John Doe',
-    profilePicture: 'path/to/profile-pic.jpg',
     bio: 'This is my bio',
-    followers: 123,
-    tweets: [
-      { content: 'Hello world!', likes: 5, comments: 2, retweets: 1 },
-      // More tweets here
-    ]
+    profilePicture: this.defaultProfilePicture
   };
 
-  constructor() {}
+  originalUser = { ...this.user }; // Copy of the original user data for canceling changes
 
-  ngOnInit(): void {}
+  toggleEditMode(): void {
+    this.editMode = !this.editMode;
+  }
 
-  editProfile(): void {
-    // Handle profile editing logic here
+  saveProfile(): void {
+    // Simulate saving changes (you would replace this with actual API/service call)
+    this.originalUser = { ...this.user }; // Save changes to originalUser
+    this.editMode = false;
+  }
+
+  cancelChanges(): void {
+    // Reset user data to originalUser on cancel
+    this.user = { ...this.originalUser };
+    this.editMode = false;
+  }
+
+  handleFileInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      const file = inputElement.files[0];
+      // Handle file upload logic (e.g., upload to server, update user.profilePicture)
+      // For simplicity, just display a preview in the UI
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.user.profilePicture = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
   }
 }

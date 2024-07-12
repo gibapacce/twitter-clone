@@ -1,25 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit {
-  newTweet: string = '';
-  tweets = [
-    { content: 'First tweet!', likes: 10, comments: 5, retweets: 2 },
-    // More tweets here
-  ];
+export class FeedComponent {
+  tweets: any[] = []; // Initialize with an empty array of tweets
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  newTweet: string = ''; // Assuming you have a property for new tweet input
+  maxTweetLength: number = 100; // Maximum allowed characters for a tweet
 
   postTweet(): void {
-    if (this.newTweet.length <= 280) {
-      this.tweets.unshift({ content: this.newTweet, likes: 0, comments: 0, retweets: 0 });
-      this.newTweet = '';
+    // Trim whitespace from the newTweet input
+    const trimmedTweet = this.newTweet.trim();
+
+    // Check if the trimmedTweet is not empty and does not exceed maxTweetLength characters
+    if (trimmedTweet && trimmedTweet.length <= this.maxTweetLength) {
+      // Create a new tweet object
+      const newTweet = {
+        content: trimmedTweet,
+        user: {
+          name: 'John Doe', // Replace with actual user name
+          profilePicture: 'path/to/profile-pic.jpg' // Replace with actual path to profile picture
+        },
+        likes: 0,
+        comments: [],
+        retweets: 0
+      };
+
+      // Prepend the new tweet to the beginning of the tweets array
+      this.tweets.unshift(newTweet);
+
+      this.newTweet = ''; // Clear the new tweet input after posting
+    } else {
+      // Handle invalid tweet (blank or exceeds character limit) if needed
+      console.log('Invalid tweet input');
+    }
+  }
+
+  updateTweet(updatedTweet: any): void {
+    const index = this.tweets.findIndex(t => t.id === updatedTweet.id); 
+    if (index !== -1) {
+      this.tweets[index] = updatedTweet; 
     }
   }
 }
