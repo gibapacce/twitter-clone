@@ -9,7 +9,7 @@ export class FeedComponent {
   tweets: any[] = []; // Initialize with an empty array of tweets
 
   newTweet: string = ''; // Assuming you have a property for new tweet input
-  maxTweetLength: number = 100; // Maximum allowed characters for a tweet
+  maxTweetLength: number = 280; // Maximum allowed characters for a tweet
 
   postTweet(): void {
     // Trim whitespace from the newTweet input
