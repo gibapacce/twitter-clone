@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router // Inject the Router service
+  ) {
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
@@ -20,8 +24,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // Handle login logic here
+      // Perform the login logic here
+
+      // After successful login, navigate to the feed page
+      this.router.navigate(['/feed']);
     }
   }
 }
