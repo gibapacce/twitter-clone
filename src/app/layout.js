@@ -9,6 +9,70 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <style>{`
+          :root {
+            --main-green: #70D96A;
+            --main-mint: #6AD9B1;
+            --main-cyan: #6AD9D6;
+            --main-lightgreen: #A3D9B3;
+            --main-bg: #CFDAC9;
+          }
+          html, body {
+            background: var(--main-bg) !important;
+          }
+          .navbar.is-light {
+            background: linear-gradient(90deg, var(--main-green) 0%, var(--main-mint) 40%, var(--main-cyan) 80%, var(--main-lightgreen) 100%);
+          }
+          .navbar.is-light .navbar-item, .navbar.is-light .navbar-link {
+            color: #222 !important;
+            font-weight: 500;
+            transition: color .2s;
+          }
+          .navbar.is-light .navbar-item.has-text-link.active, .navbar.is-light .navbar-link.has-text-link.active {
+            color: #fff !important;
+          }
+          .navbar.is-light .navbar-item:hover, .navbar.is-light .navbar-link:hover {
+            color: var(--main-green) !important;
+          }
+          .has-text-link, .navbar-item.has-text-link {
+            color: var(--main-green) !important;
+          }
+          .button.is-link, .is-link {
+            background: var(--main-green) !important;
+            border-color: var(--main-mint) !important;
+            color: #fff !important;
+          }
+          .button.is-link:hover, .button.is-link:focus {
+            background: var(--main-cyan) !important;
+            color: #222 !important;
+            box-shadow: 0 2px 8px rgba(106,217,214,0.13);
+          }
+          .notification.is-success {
+            background: var(--main-green);
+            color: #222;
+          }
+          .notification.is-danger {
+            background: var(--main-cyan);
+            color: #fff;
+          }
+          .notification.is-info {
+            background: var(--main-lightgreen);
+            color: var(--main-green);
+          }
+          .notification.is-warning {
+            background: var(--main-mint);
+            color: #222;
+          }
+          .box, .tweet-card {
+            border: 1.5px solid var(--main-lightgreen);
+          }
+        `}</style>
+      </head>
       <body>
         {children}
       </body>
