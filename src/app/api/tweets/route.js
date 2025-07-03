@@ -1,5 +1,5 @@
 let tweets = [
-  { id: 1, user: 'admin', content: 'Hello Twitter!', likes: [], retweets: [], comments: [] }
+  { id: 1, user: 'admin', content: 'Hello Proletariado!', likes: [], retweets: [], comments: [] }
 ];
 
 export async function GET() {
