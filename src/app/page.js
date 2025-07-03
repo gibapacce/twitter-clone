@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "./components/Navbar";
 import Avatar from "./components/Avatar";
 import Toast from "./components/Toast";
+import SkeletonTweet from "./components/SkeletonTweet";
 import "bulma/css/bulma.min.css";
 
 export default function FeedPage() {
@@ -73,7 +74,7 @@ export default function FeedPage() {
     <div>
       <Navbar user={user} onLogout={handleLogout} />
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
-      <div className="container" style={{ maxWidth: 600, marginTop: 30 }}>
+      <div className="container page-fade" style={{ maxWidth: 600, marginTop: 30 }}>
         <form onSubmit={handleTweet} className="box" style={{ display: "flex", gap: 16, alignItems: "flex-start", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", transition: "box-shadow .2s" }}>
           <Avatar name={user?.name} size={44} />
           <div style={{ flex: 1 }}>
@@ -93,20 +94,20 @@ export default function FeedPage() {
           </div>
         </form>
         {loading ? (
-          <div className="has-text-centered mt-6">
-            <button className="button is-loading is-large is-white" style={{ border: "none", boxShadow: "none" }}></button>
+          <div>
+            {[...Array(3)].map((_, i) => <SkeletonTweet key={i} />)}
           </div>
         ) : (
           tweets.map(tweet => (
             <div className="box tweet-card" key={tweet.id} style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderRadius: 16, marginBottom: 18, transition: "box-shadow .2s, transform .2s" }}>
               <div className="is-flex is-align-items-center mb-2">
                 <Avatar name={tweet.user} size={36} />
-                <strong className="ml-2">@{tweet.user}</strong>
+                <strong className="ml-2" style={{ color: 'var(--color-text)' }}>@{tweet.user}</strong>
                 {tweet.user === user.username && (
                   <button className="delete ml-auto" onClick={() => handleAction(tweet.id, "delete")}></button>
                 )}
               </div>
-              <p style={{ margin: "10px 0", fontSize: 17 }}>{tweet.content}</p>
+              <p style={{ margin: "10px 0", fontSize: 17, color: 'var(--color-text)' }}>{tweet.content}</p>
               <div className="buttons are-small mt-2">
                 <button
                   className={`button is-light ${tweet.likes.includes(user.username) ? "has-text-link" : ""}`}
@@ -130,8 +131,8 @@ export default function FeedPage() {
                   <strong>Comentários:</strong>
                   <ul style={{ paddingLeft: 16 }}>
                     {tweet.comments.map((c, i) => (
-                      <li key={i} style={{ marginBottom: 4 }}>
-                        <span style={{ fontWeight: 600 }}><Avatar name={c.user} size={22} /> @{c.user}:</span> {c.text}
+                      <li key={i} style={{ marginBottom: 4, color: 'var(--color-text)' }}>
+                        <span style={{ fontWeight: 600, color: 'var(--color-text)' }}><Avatar name={c.user} size={22} /> @{c.user}:</span> {c.text}
                       </li>
                     ))}
                   </ul>
@@ -161,15 +162,22 @@ export default function FeedPage() {
       </div>
       <style jsx global>{`
         .tweet-card:hover {
-          box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+          box-shadow: 0 6px 24px rgba(106,217,214,0.13);
           transform: translateY(-2px) scale(1.01);
         }
         .button.is-link:hover, .button.is-link:focus {
-          background: #0072ff !important;
-          box-shadow: 0 2px 8px rgba(0,123,255,0.13);
+          background: var(--color-accent) !important;
+          box-shadow: 0 2px 8px rgba(106,217,214,0.13);
         }
         .box:hover, .box:focus-within {
           transition: box-shadow .2s, transform .2s;
+        }
+        .page-fade {
+          animation: fadein-page 0.5s;
+        }
+        @keyframes fadein-page {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
       `}</style>
     </div>

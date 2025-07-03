@@ -78,11 +78,6 @@ Você pode fazer deploy facilmente no [Vercel](https://vercel.com/) ou [Netlify]
 
 ---
 
-## 🖼 Prints
-> Adicione prints da interface aqui para ilustrar o funcionamento do projeto.
-
----
-
 ## 📄 Licença
 MIT
 

@@ -3,8 +3,8 @@
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
+  --color-button-primary-hover: #383838;
+  --color-button-secondary-hover: #f2f2f2;
 
   display: grid;
   grid-template-rows: 20px 1fr 20px;
@@ -22,8 +22,8 @@
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
+    --color-button-primary-hover: #ccc;
+    --color-button-secondary-hover: #1a1a1a;
   }
 }
 
@@ -111,12 +111,12 @@ a.secondary {
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
-    background: var(--button-primary-hover);
+    background: var(--color-button-primary-hover);
     border-color: transparent;
   }
 
   a.secondary:hover {
-    background: var(--button-secondary-hover);
+    background: var(--color-button-secondary-hover);
     border-color: transparent;
   }
 

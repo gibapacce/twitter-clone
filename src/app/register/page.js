@@ -3,10 +3,26 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "bulma/css/bulma.min.css";
 
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
 export default function RegisterPage() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [avatarColor, setAvatarColor] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return getComputedStyle(document.documentElement).getPropertyValue('--color-primary') || '#70D96A';
+    }
+    return '#70D96A';
+  });
+  const [avatarImage, setAvatarImage] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const router = useRouter();
@@ -15,10 +31,14 @@ export default function RegisterPage() {
     e.preventDefault();
     setError("");
     setSuccess(false);
+    let image = avatarImage;
+    if (e.target.avatarImage.files[0]) {
+      image = await toBase64(e.target.avatarImage.files[0]);
+    }
     const res = await fetch("/api/auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "register", username, password, name }),
+      body: JSON.stringify({ action: "register", username, password, name, avatarColor, avatarImage: image }),
     });
     const data = await res.json();
     if (data.success) {
@@ -49,6 +69,16 @@ export default function RegisterPage() {
           <label className="label">Senha</label>
           <div className="control">
             <input className="input" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Avatar (opcional)</label>
+          <div className="control">
+            <input className="input" type="file" name="avatarImage" accept="image/*" onChange={e => setAvatarImage(null)} />
+          </div>
+          <div className="control mt-2">
+            <label>Ou escolha uma cor:</label>
+            <input type="color" value={avatarColor} onChange={e => setAvatarColor(e.target.value)} style={{ width: 40, height: 40, border: "none", marginLeft: 8 }} />
           </div>
         </div>
         {error && <p className="has-text-danger">{error}</p>}

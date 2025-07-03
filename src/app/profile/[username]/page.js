@@ -59,21 +59,21 @@ export default function ProfilePage() {
       <Navbar user={user} onLogout={handleLogout} />
       <div className="container" style={{ maxWidth: 600, marginTop: 30 }}>
         {/* Banner */}
-        <div style={{ height: 120, background: "linear-gradient(90deg, var(--main-green) 0%, var(--main-mint) 40%, var(--main-cyan) 80%, var(--main-lightgreen) 100%)", borderRadius: 16, marginBottom: -60, position: "relative" }}></div>
+        <div style={{ height: 120, background: "linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 40%, var(--color-accent) 80%, var(--color-border) 100%)", borderRadius: 16, marginBottom: -60, position: "relative" }}></div>
         {/* Avatar grande */}
         <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginBottom: 16 }}>
-          <div style={{ marginTop: -60, border: "4px solid #fff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(0,0,0,0.10)" }}>
+          <div style={{ marginTop: -60, border: "4px solid var(--color-bg-card)", borderRadius: "50%", boxShadow: "0 2px 8px rgba(0,0,0,0.10)" }}>
             <Avatar name={profile.name} size={96} />
           </div>
-          <h2 className="title is-4 mt-2" style={{ color: "var(--main-green)" }}>@{profile.username}</h2>
+          <h2 className="title is-4 mt-2" style={{ color: "var(--color-primary)" }}>@{profile.username}</h2>
           <p><strong>Nome:</strong> {profile.name}</p>
           <div className="is-flex is-align-items-center mt-2" style={{ gap: 24 }}>
-            <span style={{ color: "var(--main-green)" }}><i className="fa-solid fa-feather-pointed"></i> Tweets: <strong>{tweets.length}</strong></span>
-            <span style={{ color: "var(--main-mint)" }}><i className="fa-solid fa-heart"></i> Curtidas: <strong>{tweets.reduce((acc, t) => acc + t.likes.length, 0)}</strong></span>
-            <span style={{ color: "var(--main-cyan)" }}><i className="fa-solid fa-retweet"></i> Retweets: <strong>{tweets.reduce((acc, t) => acc + t.retweets.length, 0)}</strong></span>
+            <span style={{ color: "var(--color-primary)" }}><i className="fa-solid fa-feather-pointed"></i> Tweets: <strong>{tweets.length}</strong></span>
+            <span style={{ color: "var(--color-secondary)" }}><i className="fa-solid fa-heart"></i> Curtidas: <strong>{tweets.reduce((acc, t) => acc + t.likes.length, 0)}</strong></span>
+            <span style={{ color: "var(--color-accent)" }}><i className="fa-solid fa-retweet"></i> Retweets: <strong>{tweets.reduce((acc, t) => acc + t.retweets.length, 0)}</strong></span>
           </div>
         </div>
-        <h3 className="title is-5 mt-4" style={{ color: "var(--main-green)" }}>Tweets</h3>
+        <h3 className="title is-5 mt-4" style={{ color: "var(--color-primary)" }}>Tweets</h3>
         {loading ? (
           <div className="has-text-centered mt-6">
             <button className="button is-loading is-large is-white" style={{ border: "none", boxShadow: "none" }}></button>
@@ -85,7 +85,7 @@ export default function ProfilePage() {
             <div className="box tweet-card" key={tweet.id} style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderRadius: 16, marginBottom: 18, transition: "box-shadow .2s, transform .2s" }}>
               <p style={{ fontSize: 17 }}>{tweet.content}</p>
               <div className="is-size-7 has-text-grey mt-2">
-                <i className="fa-solid fa-heart" style={{ color: "var(--main-mint)" }}></i> {tweet.likes.length} &nbsp;|&nbsp; <i className="fa-solid fa-retweet" style={{ color: "var(--main-cyan)" }}></i> {tweet.retweets.length} &nbsp;|&nbsp; <i className="fa-solid fa-comment" style={{ color: "var(--main-lightgreen)" }}></i> {tweet.comments.length}
+                <i className="fa-solid fa-heart" style={{ color: "var(--color-secondary)" }}></i> {tweet.likes.length} &nbsp;|&nbsp; <i className="fa-solid fa-retweet" style={{ color: "var(--color-accent)" }}></i> {tweet.retweets.length} &nbsp;|&nbsp; <i className="fa-solid fa-comment" style={{ color: "var(--color-border)" }}></i> {tweet.comments.length}
               </div>
             </div>
           ))

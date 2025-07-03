@@ -54,19 +54,19 @@ export default function ExplorePage() {
     <div>
       <Navbar user={user} onLogout={handleLogout} />
       <div className="container" style={{ maxWidth: 600, marginTop: 30 }}>
-        <form onSubmit={handleSearch} className="box" style={{ display: "flex", gap: 8, alignItems: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", background: "var(--main-lightgreen)" }}>
-          <i className="fa-solid fa-magnifying-glass fa-lg" style={{ color: "var(--main-green)" }}></i>
-          <input className="input" placeholder="Buscar tweets ou usuários..." value={query} onChange={e => setQuery(e.target.value)} style={{ borderRadius: 16, border: "1.5px solid var(--main-green)", color: "var(--main-mint)" }} />
-          <button className="button is-link" type="submit" style={{ borderRadius: 16, background: "var(--main-mint)", color: "#222", border: "none" }}><i className="fa-solid fa-search"></i></button>
+        <form onSubmit={handleSearch} className="box" style={{ display: "flex", gap: 8, alignItems: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", background: "var(--color-border)" }}>
+          <i className="fa-solid fa-magnifying-glass fa-lg" style={{ color: "var(--color-primary)" }}></i>
+          <input className="input" placeholder="Buscar tweets ou usuários..." value={query} onChange={e => setQuery(e.target.value)} style={{ borderRadius: 16, border: "1.5px solid var(--color-primary)", color: "var(--color-secondary)" }} />
+          <button className="button is-link" type="submit" style={{ borderRadius: 16, background: "var(--color-secondary)", color: "var(--color-text)", border: "none" }}><i className="fa-solid fa-search"></i></button>
         </form>
         {results.tweets.length > 0 && (
           <div>
-            <h3 className="title is-6 mt-4" style={{ color: "var(--main-green)" }}><i className="fa-solid fa-feather-pointed"></i> Tweets encontrados</h3>
+            <h3 className="title is-6 mt-4" style={{ color: "var(--color-primary)" }}><i className="fa-solid fa-feather-pointed"></i> Tweets encontrados</h3>
             {results.tweets.map(tweet => (
-              <div className="box explore-card" key={tweet.id} style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderRadius: 16, marginBottom: 14, transition: "box-shadow .2s, transform .2s", border: "1.5px solid var(--main-mint)" }}>
+              <div className="box explore-card" key={tweet.id} style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderRadius: 16, marginBottom: 14, transition: "box-shadow .2s, transform .2s", border: "1.5px solid var(--color-secondary)" }}>
                 <div className="is-flex is-align-items-center mb-1">
                   <Avatar name={tweet.user} size={28} />
-                  <strong className="ml-2" style={{ color: "var(--main-green)" }}>@{tweet.user}</strong>
+                  <strong className="ml-2" style={{ color: "var(--color-primary)" }}>@{tweet.user}</strong>
                 </div>
                 <p style={{ fontSize: 16 }}>{tweet.content}</p>
               </div>
@@ -75,12 +75,12 @@ export default function ExplorePage() {
         )}
         {results.users.length > 0 && (
           <div>
-            <h3 className="title is-6 mt-4" style={{ color: "var(--main-cyan)" }}><i className="fa-solid fa-user"></i> Usuários encontrados</h3>
+            <h3 className="title is-6 mt-4" style={{ color: "var(--color-accent)" }}><i className="fa-solid fa-user"></i> Usuários encontrados</h3>
             {results.users.map(u => (
-              <div className="box explore-card" key={u.id} style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderRadius: 16, marginBottom: 14, transition: "box-shadow .2s, transform .2s", border: "1.5px solid var(--main-cyan)" }}>
+              <div className="box explore-card" key={u.id} style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderRadius: 16, marginBottom: 14, transition: "box-shadow .2s, transform .2s", border: "1.5px solid var(--color-accent)" }}>
                 <a onClick={() => router.push(`/profile/${u.username}`)} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
                   <Avatar name={u.name} size={28} />
-                  <strong style={{ color: "var(--main-green)" }}>@{u.username}</strong> - <span style={{ color: "var(--main-mint)" }}>{u.name}</span>
+                  <strong style={{ color: "var(--color-primary)" }}>@{u.username}</strong> - <span style={{ color: "var(--color-secondary)" }}>{u.name}</span>
                 </a>
               </div>
             ))}
