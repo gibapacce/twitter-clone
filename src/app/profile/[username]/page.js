@@ -4,6 +4,11 @@ import { useRouter, useParams } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import "bulma/css/bulma.min.css";
 
+/**
+ * Renders the user profile page, displaying profile information and tweets for the specified username.
+ *
+ * Redirects to the login page if no user is logged in. Shows a not found message if the profile does not exist.
+ */
 export default function ProfilePage() {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
