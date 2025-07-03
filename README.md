@@ -1,11 +1,11 @@
-# 🐦 Twitter Clone
+# 🔥🐦 ProleTwittado
 
 [![Next.js](https://img.shields.io/badge/Next.js-13+-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react)](https://react.dev/)
 [![Bulma](https://img.shields.io/badge/Bulma-0.9.4-00D1B2?logo=bulma)](https://bulma.io/)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-> **Clone funcional do Twitter/X feito com Next.js, React e Bulma.**  
+> **ProleTwittado: uma rede social vibrante, inspirada no Twitter, com tons de vermelho vivo e amarelo ouro!**  
 > **Atenção:** Este projeto é para estudo/prototipagem. Não há persistência de dados.
 
 ---
@@ -29,7 +29,8 @@
 - 📝 Feed de tweets (criar, listar, curtir, retweetar, comentar, deletar)
 - 🙍‍♂️ Página de perfil do usuário
 - 🔍 Página de explorar/buscar tweets e usuários
-- 📱 Interface responsiva e moderna com Bulma
+- 🎨 Visual moderno com paleta vermelho e amarelo ouro
+- 📱 Interface responsiva com Bulma
 - ⚡ Estado global simples com useState/localStorage
 
 ---
@@ -85,5 +86,5 @@ MIT
 
 ## 👨‍💻 Autor
 
-Feito com 💙 por [Gilberto Pacce](https://www.linkedin.com/in/gilberto-pacce/)  
+Feito com ❤️💛 por [Gilberto Pacce](https://www.linkedin.com/in/gilberto-pacce/)  
 [![GitHub](https://img.shields.io/badge/GitHub-gibapacce-181717?logo=github)](https://github.com/gibapacce)

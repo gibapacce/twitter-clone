@@ -3,7 +3,7 @@ import "./globals.css";
 // Remover import ThemeToggle
 
 export const metadata = {
-  title: "Proletwittado",
+  title: "ProleTwittado",
   description: "Uma rede social vibrante em vermelho e amarelo ouro",
 };
 
