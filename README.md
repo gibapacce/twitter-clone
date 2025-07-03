@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Twitter Clone
 
-## Getting Started
+Clone funcional do Twitter/X desenvolvido com [Next.js](https://nextjs.org), [React](https://react.dev) e [Bulma](https://bulma.io/).
 
-First, run the development server:
+> **Atenção:** Este projeto é apenas para fins de estudo e prototipagem. Não há persistência de dados: tudo é mantido em memória enquanto o servidor está rodando.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Funcionalidades
+
+- Cadastro e login de usuários (nome, usuário e senha)
+- Feed de tweets (criar, listar, curtir, retweetar, comentar, deletar)
+- Página de perfil do usuário
+- Página de explorar/buscar tweets e usuários
+- Interface responsiva e moderna com Bulma
+- Estado global simples com useState/localStorage
+
+---
+
+## Como rodar o projeto
+
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+3. Acesse [http://localhost:3000](http://localhost:3000) no navegador.
+
+---
+
+## Estrutura de Pastas
+
+```
+src/
+  app/
+    api/         # Rotas de API (tweets, users, auth, comments)
+    components/   # Componentes React reutilizáveis
+    page.js       # Feed principal
+    login/        # Página de login
+    register/     # Página de cadastro
+    profile/      # Página de perfil
+    explore/      # Página de busca
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
+- [Next.js 13+ (App Router)](https://nextjs.org/docs/app)
+- [React 18+](https://react.dev)
+- [Bulma CSS](https://bulma.io/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Observações
+- **Sem banco de dados:** Todos os dados são armazenados em variáveis em memória no backend (API). Ao reiniciar o servidor, tudo é perdido.
+- **Ideal para prototipagem, testes e estudos.**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
+Você pode fazer deploy facilmente no [Vercel](https://vercel.com/) ou [Netlify](https://www.netlify.com/).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Prints
+Adicione prints da interface aqui para ilustrar o funcionamento do projeto.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licença
+MIT

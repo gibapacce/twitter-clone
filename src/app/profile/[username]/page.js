@@ -15,6 +15,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const u = localStorage.getItem("user");
+    console.log("Usuário localStorage:", u);
     if (!u) {
       router.push("/login");
       return;
