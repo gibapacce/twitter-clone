@@ -13,7 +13,7 @@ export default function Navbar({ user, onLogout }) {
         <a className="navbar-item" onClick={() => router.push("/")}
           style={{ fontWeight: 700, fontSize: 22 }}>
           <i className="fa-brands fa-twitter has-text-link" style={{ marginRight: 8 }}></i>
-          Twitter Clone
+          Proletwittado
         </a>
       </div>
       <div className="navbar-menu">
